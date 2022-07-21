@@ -1,0 +1,14 @@
+import urllib.request
+import json
+import time
+while True:
+  url='http://api.open-notify.org/iss-now.json'
+  response=urllib.request.urlopen(url)
+  result=json.load(response)
+#print(result)
+  lat=result['iss_position']['latitude']
+  long=result['iss_position']['longitude']
+  current_time=time.ctime(result['timestamp'])
+  print(f'The current location of ISS is :https://www.google.com/maps/place/{lat}+{long}')
+  print(f'The current time of the ISS is {current_time}')    
+  time.sleep(5)
